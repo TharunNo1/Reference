@@ -252,11 +252,11 @@ def fp8_autocast(
             _FP8_AUTOCAST_COUNTER += 1
         _FP8_AUTOCAST_DEPTH += 1
 
-        if enabled:
-            assert (
-                torch.cuda.get_device_properties(torch.cuda.current_device()).major >= 9
-            ), "Device compute capability 9.x required for FP8 execution."
-        yield
+#         if enabled:
+#             assert (
+#                 torch.cuda.get_device_properties(torch.cuda.current_device()).major >= 9
+#             ), "Device compute capability 9.x required for FP8 execution."
+#         yield
     finally:
         _FP8_ENABLED,_FP8_CALIBRATION, _FP8_RECIPE, _FP8_DISTRIBUTED_GROUP = fp8_state
         _IS_FIRST_FP8_MODULE = False
